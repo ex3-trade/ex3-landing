@@ -2,7 +2,7 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react';
-import { createChart, IChartApi, ISeriesApi } from 'lightweight-charts';
+import { createChart } from 'lightweight-charts';
 
 interface ChartCardProps {
     width?: number;
