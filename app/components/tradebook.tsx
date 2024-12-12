@@ -38,7 +38,7 @@ const TradeBook: React.FC = () => {
     const interval = setInterval(() => {
       const newTrade = generateRandomTrade();
       setTrades((prevTrades) => [newTrade, ...prevTrades.slice(0, 49)]); // Limit to 50 trades
-    }, 1000); // Generate a new trade every second
+    }, 300); // Generate a new trade every second
 
     return () => clearInterval(interval);
   }, []);
