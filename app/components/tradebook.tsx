@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from 'react';
-import styles from './TradeBook.module.css'; // Add your CSS here
+import styles from './TradeBook.module.css';
 
 type Trade = {
   product: string;
@@ -31,13 +31,13 @@ const generateRandomTrade = (): Trade => {
   };
 };
 
-const TradeBook = () => {
-  const [trades, setTrades] = useState<Trade[]>([]); // Correctly typed state
+const TradeBook: React.FC = () => {
+  const [trades, setTrades] = useState<Trade[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       const newTrade = generateRandomTrade();
-      setTrades((prevTrades) => [newTrade, ...prevTrades.slice(0, 49)]); // Limit to 50 trades for performance
+      setTrades((prevTrades) => [newTrade, ...prevTrades.slice(0, 49)]); // Limit to 50 trades
     }, 1000); // Generate a new trade every second
 
     return () => clearInterval(interval);

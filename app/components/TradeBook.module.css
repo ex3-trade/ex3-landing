@@ -4,7 +4,8 @@
     background-color: #1a1a1a;
     color: #fff;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    overflow-y: auto; /* Enable scrolling */
+    max-height: 300px;
   }
   
   .header {
@@ -13,20 +14,20 @@
     padding: 10px;
     border-bottom: 1px solid #444;
     background-color: #222;
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
   
   .trades {
-    height: 300px;
-    overflow-y: hidden;
     display: flex;
-    flex-direction: column-reverse; /* Start scrolling from the bottom */
+    flex-direction: column; /* Display trades in a column */
   }
   
   .trade {
     display: flex;
     justify-content: space-between;
     padding: 5px 10px;
-    animation: scrollIn 1s ease-in-out;
   }
   
   .trade.buy {
@@ -37,10 +38,15 @@
     color: #ff0000; /* Red for sell */
   }
   
-  @keyframes scrollIn {
+  /* Fade-in animation for the newest trade */
+  .trade.new {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(-10px);
     }
     to {
       opacity: 1;
